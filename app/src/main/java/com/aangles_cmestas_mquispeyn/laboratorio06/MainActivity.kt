@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         dataBinding = setContentView(this, R.layout.activity_main)
         setProductsAdapter()
-        getProducts()
+        getCarParks()
         setProgressBarAccordingToLoadState()
 
     }
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         dataBinding.recyclerView.adapter = adapter
     }
 
-    private fun getProducts() {
+    private fun getCarParks() {
         lifecycleScope.launch {
             viewModel.flow.collectLatest {
                 adapter.submitData(it)
